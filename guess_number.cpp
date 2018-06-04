@@ -5,13 +5,13 @@
 int main()
 {   
     
-    game();
+    Game game;// default construcor
     
     return 0;
 
 }
 
-game::game()
+Game::Game()
 {
     //Without that the function rand always will choose the same number 
     //Function to make the computer choose a number between 1 and 1000

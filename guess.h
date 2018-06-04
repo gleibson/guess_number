@@ -4,14 +4,14 @@
 
 #pragma once
 
-class game  //class called game
+class Game  //class called game
 {
 
 private:
     int guess, number;  // two variables on private scope
 
 public:
-    game();
+    Game();
        
 };
 
