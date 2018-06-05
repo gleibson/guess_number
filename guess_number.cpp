@@ -6,20 +6,23 @@ int main()
 {   
     
     Game game;// default construcor
+
     
+
     return 0;
 
 }
 
 Game::Game()
-{
+{   
+    play:
     //Without that the function rand always will choose the same number 
     //Function to make the computer choose a number between 1 and 1000
     srand(time(0));
     number = rand() % 1000 + 1;
 
-    int *ptrguess = &guess; // pointer to guess adress
-    int *ptrnumber = &number; // pointer to number adress
+    int* ptrguess = &guess; // pointer to guess adress
+    int* ptrnumber = &number; // pointer to number adress
     //std::cout << number << std::endl; to test  
 
     do {  //conditional do while the guess is correct, which is the same value of the number
@@ -55,11 +58,32 @@ Game::Game()
             std::cout << ptrnumber << "  Number adress" << std::endl;
             std::cout << "This is the number" << std::endl;
 
-            //std::cout << "Do want play again? Type [Yes] to play again or [No] to finish" << std::endl;
-            //std::cin >> again; 
         }
     } while (guess != number);
-    system("PAUSE");
-    //function which push pause message to the system to stop the conditionals
-}
+    
+    std::cout << "Do want play again? press any key" << std::endl;
+    std::cin >> again;
+    goto play;
 
+    system("PAUSE"); //function which push pause message to the system to stop the conditionals
+
+}
+/*
+void test(char a)
+{
+    std::cout << "Do want play again? Type [y] to play again or [n] to finish" << std::endl;
+    std::cin >> again;
+
+    if (again == 'y')
+    {
+        Game game;
+    }   
+    else
+    {
+
+    }
+
+    system("exit");
+
+}
+*/
