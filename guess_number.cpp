@@ -40,7 +40,8 @@ Game::Game()
 
             for (int i = 0; i < guess; i++)
             {
-                ptrguess++;
+                *ptrguess++;
+                
             }
         }
         else if (guess > number)
@@ -50,7 +51,8 @@ Game::Game()
             
             for (int i = 0; i < guess; i++)
             {
-                ptrguess++;
+                *ptrguess++;
+                
             }
 
         }
@@ -58,7 +60,7 @@ Game::Game()
        else
         {
             std::cout << ptrnumber << "  Number adress" << std::endl;
-            std::cout << "This is the number" << std::endl;
+            std::cout << "Yes! the number is: " << guess << std::endl;
 
         }
     } while (guess != number);
