@@ -4,32 +4,28 @@
 
 int main()
 {   
-    
-    Game game;// default construcor
-
-    
-
+     Game game;
+      
     return 0;
 
 }
 
 Game::Game()
 {   
-    
-    //Without that the function rand always will choose the same number 
-    //Function to make the computer choose a number between 1 and 1000
-    srand(time(0));
-    number = rand() % 1000 + 1;
-
     int* ptrguessini = &guess;
     int* ptrguess = &guess; // pointer to guess adress
     int* ptrnumber = &number; // pointer to number adress
-    //std::cout << number << std::endl; to test  
-
+       
     std::cout << "Guess memory address " << ptrguessini << std::endl;
     
-    while (guess != number)  //conditional do while the guess is correct, which is the same value of the number
+    
+    char again = 'Y';
+    while (again == 'Y' || again == 'y')  //conditional do while the guess is correct, which is the same value of the number
     {
+        srand(time(0)); //Without that the function rand always will choose the same number 
+        number = rand() % 1000 + 1; //Function to make the computer choose a number between 1 and 1000
+        //std::cout << number << std::endl; // to test  
+
         std::cout << "Enter the number guess between 1 and 1000: ";
         std::cin >> guess;
         std::cout << std::endl << "Guess Memory Address " << ptrguess << std::endl; //to show the address of the guess variable
@@ -62,41 +58,28 @@ Game::Game()
             std::cout << ptrnumber << "  Number adress" << std::endl;
             std::cout << "Yes! the number is: " << guess << std::endl;
 
-
             std::cout << "Guess final memory address " << ptrguess << std::endl;
             std::cout << "Guess inital memory address " << ptrguessini << std::endl;
-
-
             std::cout << "Do want play again? [Y/N ]" << std::endl;
             std::cin >> again;
-            if(again == 'N' | again == 'n')
+
+            if (again == 'n' || again == 'N') // condition to typ n and finish the game
             {
                 break;
             }
-       }
+
+            /*else if (again == 'y' || again == 'Y')
+            {
+                delete &guess;
+                continue;
+            }
+            else
+            {
+                std::cout << "Type Y or N" << std::endl;
+            }*/
+
+        }
     }
-    
-    
     system("PAUSE"); //function which push pause message to the system to stop the conditionals
-
-   
+       
 }
-/*
-void test(char a)
-{
-    std::cout << "Do want play again? Type [y] to play again or [n] to finish" << std::endl;
-    std::cin >> again;
-
-    if (again == 'y')
-    {
-        Game game;
-    }   
-    else
-    {
-
-    }
-
-    system("exit");
-
-}
-*/
